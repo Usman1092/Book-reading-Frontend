@@ -1,0 +1,52 @@
+.library-header {
+  padding: var(--space-6) 0 var(--space-5);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.library-controls {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-4);
+}
+
+.library-search {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-canvas-raised);
+  font-size: 0.95rem;
+}
+.library-search:focus {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 1px;
+}
+
+.library-select {
+  padding: 0.62rem 0.8rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-canvas-raised);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+}
+
+.library-body {
+  padding: var(--space-6) 0 var(--space-8);
+}
+
+.library-meta {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-4);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-7);
+}

@@ -1,0 +1,333 @@
+/* =========================================================================
+   WISDOM — design tokens
+   Concept: a quiet reading room. Warm linen paper, deep library-shelf
+   green, brass reading-lamp accent, and cloth-bound red used sparingly
+   for emphasis. Signature motif: a library card-catalog tab on book
+   cards, and a bookshelf-spine illustration in the hero.
+   ========================================================================= */
+
+:root {
+  /* --- Color --- */
+  --color-canvas: #faf6ec;       /* warm linen page background */
+  --color-canvas-raised: #ffffff;/* cards sitting above the canvas */
+  --color-ink: #1f2a24;          /* primary text — deep pine-ink */
+  --color-ink-muted: #5b655e;    /* secondary text */
+  --color-shelf: #2b5449;        /* primary brand green (library shelving) */
+  --color-shelf-dark: #1d3a32;   /* hover/active state for shelf green */
+  --color-shelf-tint: #e7efec;   /* pale green for subtle surfaces */
+  --color-brass: #be8a3d;        /* accent — brass reading-lamp glow */
+  --color-brass-dark: #9c6f2e;
+  --color-cloth: #8c3b32;        /* sparing accent — cloth-bound red (errors, badges) */
+  --color-cloth-tint: #f6e9e7;
+  --color-line: #ded2ba;         /* hairline borders, warm parchment tone */
+  --color-line-soft: #ece4d2;
+
+  /* --- Type --- */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* --- Scale --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  --shadow-card: 0 1px 2px rgba(31, 42, 36, 0.06), 0 6px 16px rgba(31, 42, 36, 0.07);
+  --shadow-raised: 0 4px 10px rgba(31, 42, 36, 0.08), 0 14px 32px rgba(31, 42, 36, 0.1);
+
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle paper grain so the linen background reads as material, not flat color */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: radial-gradient(rgba(31, 42, 36, 0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+  color: var(--color-ink);
+}
+
+h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 500; }
+h2 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin: 0 0 var(--space-4);
+  color: var(--color-ink-muted);
+}
+
+a {
+  color: var(--color-shelf);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* --- Focus visibility (never remove this) --- */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Layout helpers --- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brass-dark);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+  text-decoration: none;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--color-shelf);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-shelf-dark);
+  text-decoration: none;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--color-shelf);
+  border-color: var(--color-shelf);
+}
+.btn-secondary:hover {
+  background: var(--color-shelf-tint);
+  text-decoration: none;
+}
+.btn-brass {
+  background: var(--color-brass);
+  color: #fff;
+}
+.btn-brass:hover {
+  background: var(--color-brass-dark);
+  text-decoration: none;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+.btn-ghost:hover {
+  background: var(--color-line-soft);
+  text-decoration: none;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+}
+.btn-block {
+  width: 100%;
+}
+
+/* --- Form elements --- */
+.field {
+  margin-bottom: var(--space-4);
+}
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--color-ink);
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-canvas-raised);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 1px;
+  border-color: var(--color-brass);
+}
+.field-hint {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  margin-top: var(--space-1);
+}
+.field-error {
+  font-size: 0.8rem;
+  color: var(--color-cloth);
+  margin-top: var(--space-1);
+}
+
+/* --- Badges / status --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-green { background: var(--color-shelf-tint); color: var(--color-shelf-dark); }
+.badge-brass { background: #f5ead4; color: var(--color-brass-dark); }
+.badge-red { background: var(--color-cloth-tint); color: var(--color-cloth); }
+.badge-neutral { background: var(--color-line-soft); color: var(--color-ink-muted); }
+
+/* --- Alert banners --- */
+.alert {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-4);
+  border: 1px solid transparent;
+}
+.alert-info { background: var(--color-shelf-tint); border-color: #c9dcd5; color: var(--color-shelf-dark); }
+.alert-warning { background: #f5ead4; border-color: #e6cf9d; color: var(--color-brass-dark); }
+.alert-error { background: var(--color-cloth-tint); border-color: #e3c2bd; color: var(--color-cloth); }
+
+/* --- Card catalog tab (signature motif) — a small clipped-corner tag
+   used on book covers to show category, evoking a library index card --- */
+.catalog-tab {
+  position: absolute;
+  top: var(--space-3);
+  left: 0;
+  background: var(--color-ink);
+  color: var(--color-canvas);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.7rem 0.28rem 0.6rem;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 50%, 100% 100%, 0 100%);
+}
+
+/* --- Empty / loading states --- */
+.state-block {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  color: var(--color-ink-muted);
+}
+.state-block h3 {
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-line-soft) 25%, #f4ecda 37%, var(--color-line-soft) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 var(--space-4); }
+}

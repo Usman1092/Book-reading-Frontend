@@ -1,0 +1,134 @@
+/* src/pages/Simple.css */
+
+.page-header {
+  padding: var(--space-7) 0 var(--space-5);
+  background: linear-gradient(180deg, var(--color-shelf-tint) 0%, var(--color-canvas) 100%);
+}
+.page-header .container {
+  max-width: 760px;
+}
+
+.simple-content {
+  padding: var(--space-6) 0 var(--space-8);
+}
+.simple-content .container {
+  max-width: 760px;
+}
+.simple-content h2 {
+  margin-top: var(--space-6);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-6) 0 var(--space-8);
+}
+.category-card {
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.category-card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.category-card h3 { margin: 0; }
+.category-card span { color: var(--color-ink-muted); font-size: 0.85rem; }
+
+/* --- Dashboard --- */
+.dash-section {
+  padding: var(--space-6) 0;
+}
+.dash-welcome {
+  padding: var(--space-7) 0 var(--space-5);
+  background: linear-gradient(180deg, var(--color-shelf-tint) 0%, var(--color-canvas) 100%);
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+.dash-card {
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+.dash-card h4 { margin-bottom: var(--space-3); }
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-line-soft);
+}
+.progress-row:last-child { border-bottom: none; }
+.progress-row-cover {
+  width: 42px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--color-shelf);
+  flex-shrink: 0;
+}
+.progress-row-info { flex: 1; min-width: 0; }
+.progress-row-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mini-progress-track {
+  height: 5px;
+  background: var(--color-line-soft);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: var(--space-1);
+}
+.mini-progress-fill {
+  height: 100%;
+  background: var(--color-brass);
+}
+
+.form-card {
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 520px;
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+  padding: var(--space-6) 0 var(--space-8);
+}
+.plan-card {
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-card);
+}
+.plan-price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--color-shelf);
+}
+.plan-price span {
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--color-ink-muted);
+}
