@@ -38,7 +38,16 @@ export async function postProgress(bookId, page) {
 // proofs in api/admin.js, after that exact bug was caught and fixed).
 
 
+// export function coverUrl(coverPath) {
+//   if (!coverPath) return null;
+//   return `/${coverPath}`; // e.g. /covers/<uuid>.jpg — see backend static mount
+// }
+
+
 export function coverUrl(coverPath) {
   if (!coverPath) return null;
-  return `/${coverPath}`; // e.g. /covers/<uuid>.jpg — see backend static mount
+
+  const backendUrl = import.meta.env.VITE_API_URL;
+
+  return `${backendUrl}/${coverPath}`;
 }
