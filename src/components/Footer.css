@@ -1,5 +1,6 @@
 .footer {
-  margin-top: auto;
+  /* //margin-top: auto; */
+  margin-top:10px;
   background: var(--color-ink);
   color: #cfd8d2;
   padding: var(--space-7) 0 var(--space-5);
