@@ -101,9 +101,9 @@ function PaymentModal({ plan, onClose }) {
             <h3>Subscribe to {plan.name}</h3>
             <p className="field-hint" style={{ marginBottom: 'var(--space-4)' }}>
               Rs {Number(plan.price).toLocaleString()} for {plan.duration_days} days. Pay via Easypaisa or bank
-              transfer, then submit your reference number and (optionally) a screenshot of the payment below.
+              transfer in this <strong> Account No: 0348-1157246  </strong> then submit your reference number and (optionally) a screenshot of the payment below.
               An administrator will review and activate your subscription.
-              <span>0348-1157246 </span>
+              <span> Account No: 0348-1157246 </span>
             </p>
             {error && <div className="alert alert-error">{error}</div>}
             <form onSubmit={handleSubmit}>
