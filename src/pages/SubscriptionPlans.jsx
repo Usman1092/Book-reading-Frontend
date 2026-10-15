@@ -103,6 +103,7 @@ function PaymentModal({ plan, onClose }) {
               Rs {Number(plan.price).toLocaleString()} for {plan.duration_days} days. Pay via Easypaisa or bank
               transfer, then submit your reference number and (optionally) a screenshot of the payment below.
               An administrator will review and activate your subscription.
+              <span>0348-1157246 </span>
             </p>
             {error && <div className="alert alert-error">{error}</div>}
             <form onSubmit={handleSubmit}>
