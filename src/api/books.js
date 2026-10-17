@@ -44,10 +44,36 @@ export async function postProgress(bookId, page) {
 // }
 
 
+// export function coverUrl(coverPath) {
+//   if (!coverPath) return null;
+
+//   const backendUrl = import.meta.env.VITE_API_URL;
+
+//   return `${backendUrl}/${coverPath}`;
+// }
+
+// src/api/books.js
+
+const CDN_BASE = "https://book-cdn.best4usmanali.workers.dev";
+const BACKEND_BASE = "https://book-reading-backend-1.onrender.com";
+
+// Cover ke liye CDN URL - B2 se aayega
 export function coverUrl(coverPath) {
   if (!coverPath) return null;
 
-  const backendUrl = import.meta.env.VITE_API_URL;
+  // NAYI BOOK (B2 par) - iska path hoga: covers/uuid.jpg
+  // Isko Cloudflare CDN se dikhao (Tez)
+  if (coverPath.startsWith("covers/")) {
+    return `${CDN_BASE}/${coverPath}`;
+  }
 
-  return `${backendUrl}/${coverPath}`;
+  // PURANI BOOK (agar pehle ki books Render par hain)
+  // Unko backend se dikhao
+  if (coverPath.startsWith("http")) {
+    return coverPath;
+  }
+
+  // Fallback - agar sirf filename hai
+  return `${BACKEND_BASE}/${coverPath}`;
 }
+
